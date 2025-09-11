@@ -18,14 +18,35 @@ Sin base de datos. Sin dependencias. Con CSRF y protección contra CSV/Excel inj
 
 🌌 Fondo opcional de estrellas en todo el body (solo CSS/JS, sin imágenes).
 
-📁 Estructura
+## 📁 Estructura
 / (raíz de tu hosting)
-├─ private/              ← carpeta privada (hermana de public_html)
-│   └─ contacts.csv      ← se crea al primer envío
+├─ private/                      # carpeta privada (hermana de public_html)
+│  └─ contacts.csv               # se crea al primer envío
 └─ public_html/
-    ├─ index.php         ← página + guardado en CSV
-    └─ styles.css        ← tokens + estilos (tú lo personalizas)
+   ├─ index.php                  # página + guardado en CSV
+   └─ styles.css                 # tokens + estilos (tú lo personalizas)
 
+
+## 🎨 Tokens base (`styles.css`)
+
+```css
+:root {
+  /* Colores */
+  --bg: #0a0a1a;           /* fondo */
+  --text: #e9e9f1;         /* texto */
+  --primary: #8a2be2;      /* color principal */
+  --secondary: #ff2d96;    /* secundario vibrante */
+  --accent: #00ffe5;       /* acento */
+
+  /* Bordes / sombras */
+  --radius: 16px;          /* bordes */
+  --shadow-drop: 4px 6px 0 rgba(0, 0, 0, .35);
+
+  /* Tipografías */
+  --ff-body: "Poppins", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --ff-title: "Fredoka", "Baloo 2", "Poppins", sans-serif;
+}
+```
 
 Nota: private/ no es accesible por URL. Si no puedes crearla fuera de public_html, crea public_html/_private y protégela con .htaccess (Require all denied). Aun así, el proyecto intenta primero usar ../private.
 
