@@ -27,6 +27,7 @@ Sin base de datos. Sin dependencias. Con CSRF y protección contra CSV/Excel inj
    └─ styles.css                 # tokens + estilos (tú lo personalizas)
 
 
+
 ## 🎨 Tokens base (`styles.css`)
 
 ```css
