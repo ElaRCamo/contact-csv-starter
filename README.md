@@ -19,6 +19,7 @@ Sin base de datos. Sin dependencias. Con CSRF y protección contra CSV/Excel inj
 🌌 Fondo opcional de estrellas en todo el body (solo CSS/JS, sin imágenes).
 
 ## 📁 Estructura
+```css
 / (raíz de tu hosting)
 ├─ private/                      # carpeta privada (hermana de public_html)
 │  └─ contacts.csv               # se crea al primer envío
@@ -26,7 +27,7 @@ Sin base de datos. Sin dependencias. Con CSRF y protección contra CSV/Excel inj
    ├─ index.php                  # página + guardado en CSV
    └─ styles.css                 # tokens + estilos (tú lo personalizas)
 
-
+```
 
 ## 🎨 Tokens base (`styles.css`)
 
