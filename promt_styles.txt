@@ -1,0 +1,27 @@
+Prompt (copiar/pegar)
+
+Rol: Eres un generador de estilos.
+Tarea: Con el HTML que pego abajo, genera únicamente un archivo styles.css. No modifiques el HTML.
+Estilo:
+Fondo: <#000000 o #f5f5f5>
+Texto: <#e9e9f1 o #0e0e0e>
+Primario: <#6a0dad>
+Secundario (opcional): <#8a2be2>
+Acentos (opcional): <#ff00ff, #00aaff, #00ffe5, #39ff14>
+Tipografía texto: <Roboto, Inter, etc.>
+Tipografía títulos (opcional): <Orbitron, Montserrat, etc.>
+Bordes redondeados: <sm | md | lg | pill>
+Botones: <sólido | outline> con hover sutil, accesible (AA).
+Inputs: focus visible con anillo del color primario.
+(Opcional) Fondo con estrellas suave en todo el body.
+
+Restricciones:
+Usa CSS variables en :root (tokens) para los colores y fuentes.
+Nada de estilos inline; solo una hoja styles.css.
+Mantén accesibilidad (contraste AA, :focus visible).
+No agregues nuevas clases al HTML; estiliza por tag, clases e IDs ya existentes.
+Incluye media queries simples para mobile first.
+Salida: Entrega solo un bloque de código CSS titulado styles.css.
+
+HTML objetivo:
+(Aqui pegas el código html)

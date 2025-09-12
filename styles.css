@@ -1,0 +1,175 @@
+/* ========= TOKENS (Dark por defecto / Light opcional) ========= */
+:root {
+  /* Base */
+  --nc-offwhite: #f5f5f5;
+  --nc-dark-1: #0a0a1a;
+  --nc-dark-2: #070713;
+  --nc-text-light: #e9e9f1;
+
+  /* Acentos neón */
+  --morado:  #6a0dad;   /* primario */
+  --morado-2:#8a2be2;   /* primario fuerte */
+  --rosa:    #ff00ff;
+  --azul:    #00aaff;
+  --turquesa:#00ffe5;
+  --verde:   #39ff14;
+
+  /* Efectos */
+  --shadow-neon: 0 0 6px rgba(138,43,226,.6), 0 0 20px rgba(255,0,255,.35);
+
+  /* Tipografías */
+  --ff-body: "Roboto", system-ui, -apple-system, Segoe UI, sans-serif;
+  --ff-display: "Orbitron", "Roboto", system-ui, sans-serif;
+}
+
+/* Map a Bootstrap (modo oscuro por defecto) */
+[data-bs-theme="dark"] {
+  --bs-body-bg: var(--nc-dark-1);
+  --bs-body-color: var(--nc-text-light);
+  --bs-secondary-color: #bfc1d1;
+  --bs-border-color: rgba(255,255,255,.12);
+  --bs-emphasis-color: #fff;
+
+  --bs-primary: var(--morado-2);
+  --bs-primary-rgb: 138,43,226;
+
+  --bs-link-color: var(--turquesa);
+  --bs-link-hover-color: var(--azul);
+}
+
+[data-bs-theme="light"] {
+  --bs-body-bg: var(--nc-offwhite);
+  --bs-body-color: #0e0e0e;
+  --bs-secondary-color: #4e4e5a;
+  --bs-border-color: rgba(0,0,0,.12);
+  --bs-emphasis-color: #000;
+
+  --bs-primary: var(--morado);
+  --bs-primary-rgb: 106,13,173;
+
+  --bs-link-color: var(--morado-2);
+  --bs-link-hover-color: var(--rosa);
+}
+
+/* ========= BASE ========= */
+html, body { height: 100%; }
+body { font-family: var(--ff-body); background: var(--bs-body-bg); color: var(--bs-body-color); }
+.font-display { font-family: var(--ff-display); letter-spacing: .5px; }
+.nc-overline { text-transform: uppercase; letter-spacing: .12em; font-size: .8rem; opacity: .9; }
+
+/* ========= Componente: Card con borde/halo futurista ========= */
+.nc-card-gradient {
+  background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+  border-radius: 1rem;
+  position: relative;
+  border: 1px solid var(--bs-border-color);
+}
+.nc-card-gradient::before {
+  content: "";
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent 0%, rgba(255,255,255,.08) 30%, rgba(138,43,226,.25) 60%, rgba(255,0,255,.15) 100%);
+  filter: blur(8px);
+  z-index: -1;
+}
+
+/* ========= Botón primario con glow sutil ========= */
+.btn-primary {
+  background: var(--bs-primary);
+  border-color: var(--bs-primary);
+  border-radius: 999px;
+}
+.btn-primary:hover, .btn-primary:focus {
+  filter: brightness(1.05);
+  box-shadow: var(--shadow-neon);
+}
+
+/* ========= Inputs / focus con borde/acento neón ========= */
+.form-control:focus, .form-select:focus {
+  border-color: var(--morado-2);
+  box-shadow: 0 0 0 .2rem rgba(var(--bs-primary-rgb), .25);
+}
+
+/* ========= Alertas (paleta neón ligera) ========= */
+.alert-success { border-color: rgba(57,255,20,.35); }
+.alert-info    { border-color: rgba(0,170,255,.35); }
+.alert-danger  { border-color: rgba(255,0,255,.35); }
+
+/* ========= Countdown + subrayado ========= */
+.nc-countdown .h4 { font-weight: 700; }
+.nc-neon-underline {
+  background-image: linear-gradient( to top, rgba(138,43,226,.35), rgba(138,43,226,0) 65%);
+  box-decoration-break: clone;
+}
+
+/* ========= Navbar glass (si la usas) ========= */
+.navbar-glass {
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.brand-dot {
+  width: 28px; height: 28px; border-radius: 50%; display: inline-block; margin-right: .5rem;
+  background: radial-gradient(circle at 30% 30%, var(--rosa), var(--morado-2) 60%);
+  box-shadow: var(--shadow-neon);
+}
+
+/* ========= Fondo estrellado simple (opcional) ========= */
+.nc-bg-stars {
+  position: fixed; inset: 0; pointer-events: none; z-index: -1;
+  background:
+    radial-gradient(1px 1px at 10% 20%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(1px 1px at 30% 80%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1px 1px at 70% 30%, rgba(255,255,255,.6), transparent 60%),
+    radial-gradient(1px 1px at 90% 60%, rgba(255,255,255,.7), transparent 60%),
+    linear-gradient(var(--nc-dark-2), var(--nc-dark-1));
+}
+
+
+/* === Starfield detrás del formulario === */
+.nc-form-shell { position: relative; }
+
+/* Capa que recorta y da fondo suave (usa tus tokens) */
+.nc-starfield{
+  position: absolute; inset: 0; z-index: 0; overflow: hidden;
+  border-radius: 1rem;                 /* se integra con el card */
+  background: linear-gradient(310deg, var(--nc-dark-2) 0%, var(--nc-dark-1) 80%);
+  pointer-events: none;                 /* que no bloquee clics */
+}
+
+/* Cinta de estrellas que “vuela” */
+.nc-stars{
+  position: absolute; top: 0; left: 0; height: 100%;
+  width: 300%;                          /* más ancha para el flyby */
+  animation: nc-flyby 30s linear infinite;
+  will-change: left;
+}
+
+/* Puntitos */
+.nc-star{
+  position: absolute;
+  width: var(--size, 2px); height: var(--size, 2px);
+  border-radius: 50%;
+  background: var(--nc-text-light);
+  filter: drop-shadow(0 0 2px var(--nc-text-light));
+  opacity: .9;
+  will-change: transform;
+  animation: nc-twinkle var(--twinkle, 8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* El contenido del form encima de las estrellas */
+.nc-form-content{ position: relative; z-index: 1; background: transparent; }
+
+@keyframes nc-flyby{
+  from { left: 0; }
+  to   { left: -200%; }
+}
+
+@keyframes nc-twinkle{
+  0% { transform: scale(1); }
+  10%{ transform: scale(0.4); }
+  20%{ transform: scale(1); }
+  30%{ transform: scale(0.6); }
+  40%{ transform: scale(1); }
+  100%{ transform: scale(1); }
+}
