@@ -18,7 +18,7 @@ header("Content-Security-Policy: default-src 'self' https://cdn.jsdelivr.net htt
 
 
 define('PRIVATE_DIR', dirname(__DIR__) . '/private'); // ../private (hermana de public_html)
-if (!is_dir(PRIVATE_DIR)) { @mkdir(PRIVATE_DIR, 0755, true); }//si el herchivo lo creas tu cambia 0755 por 0644
+if (!is_dir(PRIVATE_DIR)) { @mkdir(PRIVATE_DIR, 0755, true); }//si el archivo lo creas tu cambia 0755 por 0644
 define('CONTACT_CSV', PRIVATE_DIR . '/contacts.csv');
 
 // ===== Resolver directorio privado =====
